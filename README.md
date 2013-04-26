@@ -1,10 +1,14 @@
-## Heroku ExpressJS Boilerplate
+## DWD Realtime Demo with Pusher
 
 Boilerplate for ExpressJS
 
 * Routes directory
 * Hogan-Express template engine (w/ layouts)
-* MongoDB (coming soon)
+
+### Node Modules
+
+* [Pusher Node Server](https://github.com/pusher/pusher-node-server)
+* [Youtube Feeds](https://github.com/fvdm/nodejs-youtube)
 
 
 ### Getting started w/ local development server
@@ -63,6 +67,32 @@ There are two possible ways to use Nodemon,
 Or with the helper script
 
 	. devserver
+
+## jQuery
+
+jQuery is a very popular and useful Javascript library that is used to minimize the amount of Javascript you need to write to manipulate HTML DOM elements, add click events and AJAX functions. We will use AJAX in all the demos on this site.
+
+## PUSHER - Realtime Web Service
+
+[Pusher.com](http://www.pusher.com) is a great way to add realtime events to your webapp.
+
+Register for an account at [http://pusher.com/](http://pusher.com/). You will need to create a .env file that includes the following information about your Pusher account.
+
+**.env**
+
+	PUSHER_APP_ID=XXXXXX
+	PUSHER_KEY=XXXXXXXXXXXXX
+	PUSHER_SECRET=XXXXXXXXXXXXXX
+
+Save your .env file.
+
+You will have to push your new .env variables to Heroku config so their servers have your credientals.
+
+In your code directory in Terminal run the following command.
+
+	heroku config:add PUSHER_APP_ID=XXXXXX
+	heroku config:add PUSHER_KEY=XXXXXXXXXXXXXXX
+	heroku config:add PUSHER_SECRET=XXXXXXXXXXXXX
 
 The **.nodemonignore** file will ignore certain files and directories from being watched. By default and for example we're ignoring /public folder.
 
