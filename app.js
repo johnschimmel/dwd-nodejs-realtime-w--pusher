@@ -49,6 +49,8 @@ app.get('/', routes.index);
 app.get('/chat', routes.chatDisplay);
 app.post('/chat', routes.chatAjaxMessage);
 
+app.get('/couchpotato', routes.couchPotato);
+app.post('/couch_request', routes.youtubeRequest);
 
 // create NodeJS HTTP server using 'app'
 http.createServer(app).listen(app.get('port'), function(){
