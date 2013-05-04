@@ -47,6 +47,8 @@ var routes = require('./routes/index.js');
 app.get('/', routes.index);
 
 app.get('/chat', routes.chatDisplay);
+
+// AJAX Chat
 app.post('/chat', routes.chatAjaxMessage);
 
 app.get('/couchpotato', routes.couchPotato);

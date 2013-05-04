@@ -32,25 +32,44 @@ Download and install Heroku Toolbelt <https://toolbelt.heroku.com>, this will gi
 
 	heroku create
 
-5) Add MongoLabs Starter MongoDB add on to your heroku app
-
-	heroku addons:add mongolab:starter
-
-6) Get Heroku MongoLab connection string into .env file
-
-	heroku config --shell | grep MONGOLAB_URI >> .env
-
-Your connection string to MongoDB will be in your **.env** file now.
-
-7) Start server with **foreman start**.
+5) Start server with **foreman start**.
 
 	foreman start
 
 Foreman reads your .env file, populates the process.env object for use in your app.
 
+6) ## PUSHER - Realtime Web Service
+
+[Pusher.com](http://www.pusher.com) is a great way to add realtime events to your webapp.
+
+Register for an account at [http://pusher.com/](http://pusher.com/). You will need to create a .env file that includes the following information about your Pusher account.
+
+**.env**
+
+	PUSHER_APP_ID=XXXXXX
+	PUSHER_KEY=XXXXXXXXXXXXX
+	PUSHER_SECRET=XXXXXXXXXXXXXX
+
+Save your .env file.
+
+7) PUSHER VARIABLES to Heroku. 
+
+You will have to push your new .env variables to Heroku config so their servers have your credientals.
+
+In your code directory in Terminal run the following command.
+
+	heroku config:add PUSHER_APP_ID=XXXXXX
+	heroku config:add PUSHER_KEY=XXXXXXXXXXXXXXX
+	heroku config:add PUSHER_SECRET=XXXXXXXXXXXXX
+
 8) Open web browser to <http://localhost:5000> to view the web app.
 
 9) Stop the web server press Command+C in the Terminal window.
+
+
+## jQuery
+
+jQuery is a very popular and useful Javascript library that is used to minimize the amount of Javascript you need to write to manipulate HTML DOM elements, add click events and AJAX functions. We will use AJAX in all the demos on this site.
 
 ### Auto restart development server
 
@@ -67,32 +86,6 @@ There are two possible ways to use Nodemon,
 Or with the helper script
 
 	. devserver
-
-## jQuery
-
-jQuery is a very popular and useful Javascript library that is used to minimize the amount of Javascript you need to write to manipulate HTML DOM elements, add click events and AJAX functions. We will use AJAX in all the demos on this site.
-
-## PUSHER - Realtime Web Service
-
-[Pusher.com](http://www.pusher.com) is a great way to add realtime events to your webapp.
-
-Register for an account at [http://pusher.com/](http://pusher.com/). You will need to create a .env file that includes the following information about your Pusher account.
-
-**.env**
-
-	PUSHER_APP_ID=XXXXXX
-	PUSHER_KEY=XXXXXXXXXXXXX
-	PUSHER_SECRET=XXXXXXXXXXXXXX
-
-Save your .env file.
-
-You will have to push your new .env variables to Heroku config so their servers have your credientals.
-
-In your code directory in Terminal run the following command.
-
-	heroku config:add PUSHER_APP_ID=XXXXXX
-	heroku config:add PUSHER_KEY=XXXXXXXXXXXXXXX
-	heroku config:add PUSHER_SECRET=XXXXXXXXXXXXX
 
 The **.nodemonignore** file will ignore certain files and directories from being watched. By default and for example we're ignoring /public folder.
 

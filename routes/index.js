@@ -33,7 +33,13 @@ exports.chatDisplay = function(req, res) {
 
 exports.chatAjaxMessage = function(req, res) {
 	
-	pusher.trigger( 'chat_demo', 'incoming_chat', { message: req.body.msg } );
+	pusher.trigger(
+		'chat_demo',
+		'incoming_chat', 
+		{ 
+			message: req.body.msg
+		}
+	);
 	res.send("message broadcasted")
 
 }
@@ -62,15 +68,24 @@ exports.youtubeRequest = function(req, res){
 
 		if (data && data.items.length > 0) {
 			
+			console.log(data);
+
 			// get first video result
 			var topVideo = data.items[0];
 
 			// trigger broadcast
-			pusher.trigger( 'couch_potato', 'incoming_youtube', { video: topVideo } );	
+			pusher.trigger(
+				'couch_potato', 
+				'incoming_youtube', 
+				{
+					video: topVideo,
+					query : ytQuery
+				}
+			);	
 
 			res.send("query successful");
 
-		} else if (youtubeResults.length == 0){
+		} else if (data.items.length == 0){
 			res.send(500,"no youtube results found");
 		}
 
